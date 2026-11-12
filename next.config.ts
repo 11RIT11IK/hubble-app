@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
       },
     },
   },
+	 async rewrites() {
+    return [
+      {
+        source: "/models/c41.glb",
+        destination: "https://d8wojkg2185gh.cloudfront.net/strapi/C41_QS_a3f9c78cdb.glb",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

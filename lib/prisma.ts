@@ -8,6 +8,8 @@ const adapter = new PrismaMariaDb({
   database: process.env.DATABASE_NAME,
   port: Number(process.env.DATABASE_PORT),
   connectionLimit: 5,
+	connectTimeout: 10000,
+  allowPublicKeyRetrieval: true,
 });
 
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };

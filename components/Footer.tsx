@@ -4,8 +4,6 @@ import { formatDates } from "@/lib/format";
 
 const links = [
   { href: "/#products", label: "Products" },
-  // { href: "/#exhibitors", label: "Exhibitors" },
-  // { href: "/#consult", label: "Contact" },
 ];
 
 export default async function Footer() {
