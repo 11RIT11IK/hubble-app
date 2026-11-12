@@ -2,9 +2,7 @@ import Link from "next/link";
 import { getExhibitorStats, getFooterExhibitors } from "@/lib/scraper/getExhibitorStats";
 import { formatDates } from "@/lib/format";
 
-const links = [
-  { href: "/#products", label: "Products" },
-];
+
 
 export default async function Footer() {
   const [{ exhibitorCount, shows }, exhibitors] = await Promise.all([
@@ -37,18 +35,7 @@ export default async function Footer() {
             </Link>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-white">Explore</h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="transition hover:text-white">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+
 
           <div>
             <h3 className="text-sm font-semibold text-white">Shows</h3>

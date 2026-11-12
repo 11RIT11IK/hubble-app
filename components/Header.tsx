@@ -2,10 +2,7 @@ import { getExhibitorStats } from "@/lib/scraper/getExhibitorStats";
 import Link from "next/link";
 import { formatDates } from "@/lib/format";
 
-const links = [
-  { href: "/#products", label: "Products" },
 
-];
 
 export default async function Header() {
 const { exhibitorCount, shows } = await getExhibitorStats();
@@ -40,7 +37,7 @@ return (
       {/* Main bar */}
       <div className="border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-lg font-bold text-white">
               H
             </span>
@@ -48,15 +45,9 @@ return (
               <span className="block text-lg font-bold text-slate-900">Hubble</span>
               <span className="block text-[11px] text-slate-500">by Cavli Wireless</span>
             </span>
-          </Link>
+          </a>
 
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-            {links.map((l) => (
-              <Link key={l.href} href={l.href} className="transition hover:text-blue-600">
-                {l.label}
-              </Link>
-            ))}
-          </nav>
+
 
           <Link
             href="/#consult"
@@ -76,11 +67,7 @@ return (
             </summary>
 
             <div className="absolute right-0 top-12 w-60 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
-              {links.map((l) => (
-                <Link key={l.href} href={l.href} className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-100">
-                  {l.label}
-                </Link>
-              ))}
+    
               <Link
                 href="/#consult"
                 className="mt-2 block rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white"
