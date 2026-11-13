@@ -15,6 +15,69 @@ datasource db {
 
 //design tables of hubble-app
 
-model Ping {
-	id Int @id @default(autoincrement())
+model Show {
+  id         Int        @id                       
+  name       String     @db.VarChar(255)
+  startDate  DateTime?  @map("start_date")
+  endDate    DateTime?  @map("end_date")
+  exhibitors Exhibitor[]
+
+  @@map("shows")
+}
+
+model Country {
+  id         Int        @id @default(autoincrement())
+  name       String     @unique @db.VarChar(150)
+  exhibitors Exhibitor[]
+
+  @@map("countries")
+}
+
+model Hall {
+  id         Int        @id @default(autoincrement())
+  hallNo     String     @unique @map("hall_no") @db.VarChar(20)
+  exhibitors Exhibitor[]
+
+  @@map("halls")
+}
+
+model Exhibitor {
+  id            Int      @id                      
+  companyName   String   @map("company_name") @db.VarChar(255)
+  logoUrl       String?  @map("logo_url") @db.VarChar(512)
+  userId        String?  @map("user_id") @db.VarChar(64)
+  boothNo       String?  @map("booth_no") @db.Text
+  exhibitorType String?  @map("exhibitor_type") @db.VarChar(100)
+  sponsorship   String?  @db.VarChar(100)
+
+  showId        Int?     @map("show_id")
+  countryId     Int?     @map("country_id")
+  hallId        Int?     @map("hall_id")
+
+  show          Show?    @relation(fields: [showId], references: [id])
+  country       Country? @relation(fields: [countryId], references: [id])
+  hall          Hall?    @relation(fields: [hallId], references: [id])
+
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("exhibitors")
+}
+
+model Consult {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  message     String   @db.Text
+  status      String   @default("PENDING") // PENDING or CONFIRMED
+  slotTime    DateTime?                    // Stored when the user picks a time slot
+  meetLink    String?                      // Generated Google Meet link
+	googleEventId String?                        // Google Calendar Event ID for reference/updates
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([slotTime])                           // Ensures no two users can book the same slot
+  @@index([status])
 }
