@@ -27,7 +27,7 @@ export default function Home() {
               Explore products
             </Link> */}
             <Link
-              href="#consult"
+              href="/consult"
               className="w-full rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-blue-600 hover:text-blue-600 sm:w-auto"
             >
               Consult now

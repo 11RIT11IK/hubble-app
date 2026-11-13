@@ -28,7 +28,7 @@ export default async function Footer() {
               Explore Hubble products and book a consultation with the Cavli Wireless team.
             </p>
             <Link
-              href="/#consult"
+              href="/consult"
               className="mt-4 inline-block rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
             >
               Consult Now

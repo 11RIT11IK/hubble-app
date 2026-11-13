@@ -10,8 +10,7 @@ const { exhibitorCount, shows } = await getExhibitorStats();
 return (
    
 	 <header className="sticky top-0 z-50 w-full">
-      {/* Live data strip */}
-     {/* Live data strip */}
+
 <div className="bg-slate-900 text-slate-200">
   <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-4 py-2 text-xs sm:flex-row sm:justify-between sm:text-sm">
     <p className="flex items-center gap-2">
@@ -37,7 +36,7 @@ return (
       {/* Main bar */}
       <div className="border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-lg font-bold text-white">
               H
             </span>
@@ -45,12 +44,18 @@ return (
               <span className="block text-lg font-bold text-slate-900">Hubble</span>
               <span className="block text-[11px] text-slate-500">by Cavli Wireless</span>
             </span>
-          </a>
+          </Link>
 
+					<Link
+						href="/"
+						className="relative inline-flex items-center px-1 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-indigo-600 after:transition-all after:duration-200 hover:after:w-full"
+					>
+						Home
+					</Link>
 
 
           <Link
-            href="/#consult"
+            href="/consult"
             className="hidden rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 md:inline-block"
           >
             Consult Now

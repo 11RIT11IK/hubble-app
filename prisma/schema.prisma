@@ -63,3 +63,21 @@ model Exhibitor {
 
   @@map("exhibitors")
 }
+
+model Consult {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  message     String   @db.Text
+  status      String   @default("PENDING") // PENDING or CONFIRMED
+  slotTime    DateTime?                    // Stored when the user picks a time slot
+  meetLink    String?                      // Generated Google Meet link
+	googleEventId String?                        // Google Calendar Event ID for reference/updates
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([slotTime])                           // Ensures no two users can book the same slot
+  @@index([status])
+}

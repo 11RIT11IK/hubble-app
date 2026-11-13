@@ -51,7 +51,7 @@ export default async function ProductPage({ params }: Props) {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/#consult"
+              href="/consult"
               className="rounded-lg bg-blue-600 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-700"
             >
               Consult now
